@@ -20,7 +20,6 @@ public class RecordSpravka {
     private Long id;
     @NotEmpty
     private String initiator;
-    @NotEmpty
     private String date;
     @NotEmpty
     private String duty;

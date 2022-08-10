@@ -11,6 +11,9 @@ import ou.entity.RecordSpravka;
 import ou.service.RecordService;
 
 import javax.validation.Valid;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 @Controller
 public class MainController {
@@ -24,7 +27,7 @@ public class MainController {
     @GetMapping
     public String main(Model model) {
         model.addAttribute("records", recordService.getAllRecords());
-        model.addAttribute("newRecord", new RecordSpravka("","",""));
+        model.addAttribute("newRecord", new RecordSpravka("",new Date().toString(),""));
         return "index";
     }
 
@@ -32,6 +35,8 @@ public class MainController {
     public String addRecord(@Valid @ModelAttribute("newRecord") RecordSpravka recordSpravka,
                             BindingResult bindingResult,
                             Model model) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        recordSpravka.setDate(simpleDateFormat.format(new Date()));
         if (bindingResult.hasErrors()) {
             model.addAttribute("records", recordService.getAllRecords());
             return "index";

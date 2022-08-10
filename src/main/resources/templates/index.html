@@ -23,12 +23,12 @@
 <body>
 <div style="margin: 0 auto">
     <h1 style="text-align: center">Список учтенных справок</h1>
-    <form style="margin-left: 20%" th:action="@{/}" th:object="${newRecord}" th:method="post">
+    <form style="margin-left: 30%" th:action="@{/}" th:object="${newRecord}" th:method="post">
         <h3 style="color: red;" th:if="${#fields.hasAnyErrors()}">Ошибка ввода данных</h3>
         <label for="initiator">ФИО, отдел инициатора справки</label>
         <input id="initiator" type="text" th:field="*{initiator}">
-        <label for="date">Дата</label>
-        <input id="date" type="date" th:field="*{date}">
+<!--        <label for="date">Дата</label>-->
+<!--        <input id="date" type="date" th:field="*{date}">-->
         <label for="duty">ФИО поставившего на учет</label>
         <select id="duty" th:field="*{duty}">
             <option value="Соколов И.А." th:text="'Соколов И.А.'"></option>
@@ -38,6 +38,7 @@
             <option value="Балакин А.А." th:text="'Балакин А.А.'"></option>
             <option value="Сорокин С.В." th:text="'Сорокин С.В.'"></option>
             <option value="Винокуроов С.А." th:text="'Винокуроов С.А.'"></option>
+            <option value="Логвинов Е.В." th:text="'Логвинов Е.В.'"></option>
         </select>
         <button type="submit">Добавить</button>
     </form>
