@@ -2,7 +2,7 @@ version: "3.8"
 services:
   db_federal:
     image: "postgres"
-    container_name: "database_federal"
+    container_name: "database"
     ports:
       - "5432:5432"
     volumes:
